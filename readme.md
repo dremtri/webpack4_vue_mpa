@@ -4,7 +4,8 @@
 * [https://github.com/charleylla/charley-vue-multi](https://github.com/charleylla/charley-vue-multi)
 
 # 目录划分
-`vue_mpa  
+```
+vue_mpa  
     |-- index.html  
     |-- build  
     |   |-- alias.js  
@@ -40,7 +41,7 @@
         |       |   |-- test.vue  
         |       |-- utils  
         |-- utils  
-`
+```
 
 # 搭建步骤
 1. 配置webpack的**entry**, **output**, **alias**, **htmlPlugins** **loaders**
