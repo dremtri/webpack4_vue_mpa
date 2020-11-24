@@ -7,4 +7,12 @@
 
 # 搭建步骤
 1. 配置webpack的**entry**, **output**, **alias**, **htmlPlugins** **loaders**
-2. 
+
+# todo
+1. webpack 配置优化
+2. webpack 配置合并
+3. 引入第三方库
+4. 封装axios
+5. 多页面状态管理
+6. 路由配置
+7. ...
