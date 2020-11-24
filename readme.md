@@ -4,42 +4,42 @@
 * [https://github.com/charleylla/charley-vue-multi](https://github.com/charleylla/charley-vue-multi)
 
 # 目录划分
-vue_mpa
-    |-- index.html
-    |-- build
-    |   |-- alias.js
-    |   |-- config.js
-    |   |-- module.js
-    |   |-- utils.js
-    |   |-- webpack.base.conf.js
-    |   |-- webpack.dev.conf.js
-    |   |-- webpack.prod.conf.js
-    |-- dist
-    |   |-- another.html
-    |   |-- config.js
-    |   |-- home.html
-    |   |-- js
-    |       |-- another.js
-    |       |-- home.js
-    |-- public
-    |   |-- config.js
-    |-- src
-        |-- assets
-        |-- components
-        |-- pages
-        |   |-- another
-        |   |   |-- main.js
-        |   |   |-- main.vue
-        |   |   |-- components
-        |   |       |-- test.vue
-        |   |-- home
-        |       |-- main.js
-        |       |-- main.vue
-        |       |-- assets
-        |       |-- components
-        |       |   |-- test.vue
-        |       |-- utils
-        |-- utils
+vue_mpa  
+    |-- index.html  
+    |-- build  
+    |   |-- alias.js  
+    |   |-- config.js  
+    |   |-- module.js  
+    |   |-- utils.js  
+    |   |-- webpack.base.conf.js  
+    |   |-- webpack.dev.conf.js  
+    |   |-- webpack.prod.conf.js  
+    |-- dist  
+    |   |-- another.html  
+    |   |-- config.js  
+    |   |-- home.html  
+    |   |-- js  
+    |       |-- another.js  
+    |       |-- home.js  
+    |-- public  
+    |   |-- config.js  
+    |-- src  
+        |-- assets  
+        |-- components  
+        |-- pages  
+        |   |-- another  
+        |   |   |-- main.js  
+        |   |   |-- main.vue  
+        |   |   |-- components  
+        |   |       |-- test.vue  
+        |   |-- home  
+        |       |-- main.js  
+        |       |-- main.vue  
+        |       |-- assets  
+        |       |-- components  
+        |       |   |-- test.vue  
+        |       |-- utils  
+        |-- utils  
 
 
 # 搭建步骤
