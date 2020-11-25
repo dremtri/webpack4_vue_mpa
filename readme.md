@@ -1,3 +1,11 @@
+# 功能
+1. ...
+
+# 版本
+* webpack: "^4.44.2"
+* webpack-cli: "^4.2.0",
+* webpack-dev-server: "^3.11.0",
+
 # 参考链接
 * [https://github.com/lvzhenbang/webpack4.x-multi-page/tree/master/pages](https://github.com/lvzhenbang/webpack4.x-multi-page/tree/master/pages)
 * [https://github.com/cnu4/Webpack-Vue-MultiplePage](https://github.com/cnu4/Webpack-Vue-MultiplePage)
@@ -44,7 +52,7 @@ vue_mpa
 ```
 
 # 搭建步骤
-1. 配置webpack的**entry**, **output**, **alias**, **htmlPlugins** **loaders**
+1. 配置webpack的**entry**, **output**, **alias**, **htmlPlugins** **module**
 
 # todo
 1. webpack 配置优化

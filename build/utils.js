@@ -32,7 +32,6 @@ function getEntries() {
     let filename = getFileName(filePath)
     map[filename] = resolve(filePath)
   })
-  console.log(map)
   return map
 }
 

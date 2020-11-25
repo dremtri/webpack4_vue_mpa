@@ -31,16 +31,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin({
-      verbose: true, //开启在控制台输出信息
-      dry: false,
-    }),
     new VueLoaderPlugin(), // 当没有一个.vue文件会报错.
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: resolve('public'), to: resolve(config.outputDir)} // 当public目录下没有东西时会报错
-      ]
-    }),
     new MiniCssExtractPlugin({
       filename: isProd ? '[name].[contenthash].css' : '[name].css',
       chunkFilename: isProd ? '[id].[contenthash].css' : '[id].css',
