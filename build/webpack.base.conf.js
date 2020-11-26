@@ -1,6 +1,4 @@
-const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const config = require('./config')
 const { entry, output, alias, htmlPlugins, resolve, isProd } = require('./utils')

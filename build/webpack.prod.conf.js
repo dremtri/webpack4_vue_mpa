@@ -1,4 +1,5 @@
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const TerserPlugin = require('terser-webpack-plugin')
 const { merge } = require('webpack-merge')
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const baseConf = require('./webpack.base.conf')
@@ -8,29 +9,6 @@ const { resolve } = require('./utils')
 module.exports = merge(baseConf, {
   mode: 'production',
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: 'async',
-  //     minSize: 30000,
-  //     maxSize: 0,
-  //     minChunks: 1,
-  //     maxAsyncRequests: 5,
-  //     maxInitialRequests: 3,
-  //     automaticNameDelimiter: '~',
-  //     name: true,
-  //     cacheGroups: {
-  //       vendors: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         priority: -10
-  //       },
-  //       default: {
-  //         minChunks: 2,
-  //         priority: -20,
-  //         reuseExistingChunk: true
-  //       }
-  //     }
-  //   }
-  // }
   optimization:{
     splitChunks: {
       cacheGroups: {
@@ -47,22 +25,26 @@ module.exports = merge(baseConf, {
         }
       }
     },
-    // minimizer: [
-    //   new UglifyJsPlugin({
-    //     uglifyOptions: {
-    //       compress: {
-    //         warnings: false,
-    //         drop_debugger: false,
-    //         drop_console: true
-    //       }
-    //     }
-    //   }),
-    //   new OptimizeCSSAssetsPlugin({
-    //     cssProcessorOptions: {
-    //       safe: true
-    //     }
-    //   })
-    // ]
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: config.build.productionSourceMap, // Must be set to true if using source-maps in production
+        terserOptions: {
+          // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+          compress: {
+            // https://github.com/terser/terser#compress-options
+            drop_debugger: true,
+            drop_console: true
+          }
+        }
+      }),
+      // new OptimizeCSSAssetsPlugin({
+      //   cssProcessorOptions: {
+      //     safe: true
+      //   }
+      // })
+    ]
   },
   plugins: [
     new CleanWebpackPlugin({
