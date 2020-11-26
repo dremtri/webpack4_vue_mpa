@@ -18,7 +18,7 @@ function getRules() {
     {
       test: /\.css$/,
       use: [
-        (isProd ? MiniCssExtractPlugin.loader : 'vue-style-loader'),
+        MiniCssExtractPlugin.loader,
         'css-loader',
         'postcss-loader'
       ]
@@ -27,7 +27,7 @@ function getRules() {
       test: /\.scss$/,
       exclude: /node_modules/,
       use: [
-        (isProd ? MiniCssExtractPlugin.loader : 'vue-style-loader'),
+        MiniCssExtractPlugin.loader,
         'css-loader',
         'postcss-loader',
         'sass-loader'
