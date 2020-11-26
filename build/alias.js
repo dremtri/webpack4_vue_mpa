@@ -1,5 +1,5 @@
 module.exports = {
-  "@component":"src/component",
-  "@utils":"src/utils",
-  "@assets":"src/assets",
+  '@component': 'src/component',
+  '@utils': 'src/utils',
+  '@assets': 'src/assets',
 }
