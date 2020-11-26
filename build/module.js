@@ -30,7 +30,7 @@ function getRules() {
         (isProd ? MiniCssExtractPlugin.loader : 'vue-style-loader'),
         'css-loader',
         'postcss-loader',
-        'scss-loader'
+        'sass-loader'
       ]
     },
     {

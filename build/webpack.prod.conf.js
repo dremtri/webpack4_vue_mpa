@@ -1,4 +1,5 @@
 const CopyWebpackPlugin = require("copy-webpack-plugin")
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin')
 const { merge } = require('webpack-merge')
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
@@ -39,11 +40,11 @@ module.exports = merge(baseConf, {
           }
         }
       }),
-      // new OptimizeCSSAssetsPlugin({
-      //   cssProcessorOptions: {
-      //     safe: true
-      //   }
-      // })
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          preset: ['default', { discardComments: { removeAll: true } }]
+        }
+      })
     ]
   },
   plugins: [

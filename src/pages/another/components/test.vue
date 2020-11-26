@@ -1,5 +1,5 @@
 <template>
-  <div>asdgas1111111dgs</div>
+  <div class="test">asdgas1111111dgs</div>
 </template>
 
 <script>
@@ -8,6 +8,5 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
 </style>

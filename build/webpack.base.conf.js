@@ -30,6 +30,7 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(), // 当没有一个.vue文件会报错.
+    // 将 CSS 提取到单独的文件中
     new MiniCssExtractPlugin({
       filename: isProd ? '[name].[contenthash].css' : '[name].css',
       chunkFilename: isProd ? '[id].[contenthash].css' : '[id].css',

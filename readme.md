@@ -53,8 +53,8 @@ vue_mpa
 
 # 搭建步骤
 1. 配置**webpack**的**entry**, **output**, **resolve**, **plugins** **module**
-2. 配置**webpack**开发环境的devServer
-3. 配置**webpack**生产环境的optimization
+2. 配置**webpack**开发环境的**devServer**
+3. 配置**webpack**生产环境的**optimization**
     1. js压缩优化
     2. css压缩优化
 
