@@ -1,6 +1,7 @@
 const { plugins } = require("./webpack.base.conf");
 module.exports = {
   mode: 'production',
+  devtool: config.build.productionSourceMap ? config.build.devtool : false,
   plugins: [
     new CleanWebpackPlugin({
       verbose: true, //开启在控制台输出信息
