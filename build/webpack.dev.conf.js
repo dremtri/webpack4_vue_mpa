@@ -13,7 +13,7 @@ module.exports = merge(baseConf, {
     useLocalIp: true,
     overlay:{
       errors: true,
-      warnings: true
+      warnings: false
     },
     historyApiFallback: {
       rewrites: [

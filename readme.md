@@ -57,6 +57,8 @@ vue_mpa
 3. 配置**webpack**生产环境的**optimization**
     1. js压缩优化
     2. css压缩优化
+4. 配置**eslint**   参考: [ESLint中文官网](http://eslint.cn/docs/user-guide/configuring)
+
 
 # todo
 1. webpack 配置优化
@@ -65,5 +67,6 @@ vue_mpa
 4. 封装axios
 5. 多页面状态管理
 6. 路由配置
-7. 搭建dev-server
-8. ...
+7. 图标自动生成
+8. 打包分析工具
+9. ...
