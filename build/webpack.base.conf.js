@@ -32,8 +32,8 @@ module.exports = {
     new VueLoaderPlugin(), // 当没有一个.vue文件会报错.
     // 将 CSS 提取到单独的文件中
     new MiniCssExtractPlugin({
-      filename: isProd ? `${config.cssPath}/[name].[contenthash].css` : `${config.cssPath}/[name].css`,
-      chunkFilename: isProd ? `${config.cssPath}/[id].[contenthash].css` : `${config.cssPath}/[id].css`
+      filename: isProd ? `${config.cssPath ? config.cssPath + '/' : ''}[name].[contenthash].css` : `${config.cssPath ? config.cssPath + '/' : ''}/[name].css`,
+      chunkFilename: isProd ? `${config.cssPath ? config.cssPath + '/' : ''}[id].[contenthash].css` : `${config.cssPath ? config.cssPath + '/' : ''}/[id].css`
     }),
   ].concat(...htmlPlugins)
 }

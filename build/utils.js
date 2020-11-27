@@ -37,7 +37,7 @@ function getEntries() {
 
 // 获取webpack出口
 function getOutput() {
-  let fileName = isProd ? `${config.jsPath}/[name].[hash].js` : `${config.jsPath}/[name].js`
+  let fileName = isProd ? `${config.jsPath ? config.jsPath + '/' : ''}[name].[hash].js` : `${config.jsPath ? config.jsPath + '/' : ''}[name].js`
   return {
     path: resolve(config.outputDir),
     publicPath: config.publicPath,

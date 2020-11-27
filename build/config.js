@@ -3,8 +3,8 @@ module.exports = {
   outputDir: 'dist',
   publicPath: '',
   templatePath: 'index.html', // 模板文件位置
-  cssPath: 'css', // 相对于outputDir
-  jsPath: 'js', // 相对于outputDir
+  cssPath: 'css', // 相对于outputDir-相对路径
+  jsPath: 'js', // 相对于outputDir-相对路径
   dev: { 
     devtool: 'cheap-module-eval-source-map',
     // Use Eslint Loader?
