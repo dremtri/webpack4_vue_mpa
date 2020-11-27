@@ -3,7 +3,9 @@ module.exports = {
   outputDir: 'dist',
   publicPath: '',
   templatePath: 'index.html', // 模板文件位置
-  dev: {
+  cssPath: 'css', // 相对于outputDir
+  jsPath: 'js', // 相对于outputDir
+  dev: { 
     devtool: 'cheap-module-eval-source-map',
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and

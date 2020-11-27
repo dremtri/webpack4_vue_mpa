@@ -54,8 +54,19 @@ module.exports = merge(baseConf, {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: resolve('public'), to: resolve(config.outputDir)} // 当public目录下没有东西时会报错
+        { from: resolve('public'), to: resolve(`${config.outputDir}/public`)} // 当public目录下没有东西时会报错
       ]
     }),
-  ]
+  ],
+  stats:{
+    assets: false,
+    modules: false,
+    moduleTrace: true,
+    source: false,
+    builtAt: false,
+    children: false,
+    hash: false,
+    colors: true,
+    warnings: true,
+  },
 })

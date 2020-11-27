@@ -10,7 +10,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "~@assets/styles/variables.scss";
-// 我是测试
 .test {
   color: $themeColor;
 }
