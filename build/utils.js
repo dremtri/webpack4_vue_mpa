@@ -3,6 +3,7 @@ const glob = require('glob')
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const config = require('./config')
 const alias = require('./alias')
+const pageConfig = require('../config/pageConfig')
 const resolve = (p) => path.resolve(__dirname, "..", p)
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -37,7 +38,8 @@ function getEntries() {
 
 // 获取webpack出口
 function getOutput() {
-  let fileName = isProd ? `${config.jsPath ? config.jsPath + '/' : ''}[name].[hash].js` : `${config.jsPath ? config.jsPath + '/' : ''}[name].js`
+  const jsPath = config.jsPath ? config.jsPath + '/' : ''
+  let fileName = isProd ? `${jsPath}[name].[hash].js` : `${jsPath}[name].js`
   return {
     path: resolve(config.outputDir),
     publicPath: config.publicPath,
@@ -51,11 +53,26 @@ function getHtmlPlugins() {
   let arr = []
   entryHtml.forEach((filePath) => {
     let filename = getFileName(filePath)
+    console.log(pageConfig[filename])
     let conf = {
       template: resolve(config.templatePath), // 模板来源
       filename: filename + '.html', // 文件名称
       chunks: [filename], // 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
-      inject: true
+      inject: true,
+      templateParameters: pageConfig[filename],
+      meta: {
+        viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
+        author: 'Dremtri',
+        description: 'webpack4 + vue 多页面',
+        keywords: 'webpack4 + vue 多页面',
+        charset: {
+          charset: 'UTF-8'
+        },
+        'http-equiv': {
+          'http-equiv': 'X-UA-Compatible',
+          content: 'IE=edge'
+        }
+      }
     }
     arr.push(new HtmlWebpackPlugin(conf))
   })
@@ -68,6 +85,6 @@ module.exports = {
   entry: getEntries(),
   output: getOutput(),
   htmlPlugins: getHtmlPlugins(),
-  alias: getAlias(),
+  alias: getAlias()
 }
 

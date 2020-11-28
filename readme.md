@@ -58,6 +58,7 @@ vue_mpa
 3. 配置**webpack**生产环境的**optimization**
     1. js压缩优化
     2. css压缩优化
+    3. 打包分块
 4. 配置**eslint**   参考: [ESLint中文官网](http://eslint.cn/docs/user-guide/configuring)
 5. 配置**babel**    参考: [Babel中文官网](https://www.babeljs.cn/docs/config-files)
     * 备注(babel-loader 使用 @babel/core 的api @babel/core 使用@babel/preset-env 的方法集或者自定义的方法集)
@@ -71,4 +72,5 @@ vue_mpa
 * 路由配置
 * 图标自动生成
 * 打包分析工具
+* mock server
 * ...
