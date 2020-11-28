@@ -2,6 +2,7 @@
 1. ...
 
 # 版本
+* nodejs: "14.15.1"
 * webpack: "^4.44.2"
 * webpack-cli: "^4.2.0",
 * webpack-dev-server: "^3.11.0",
@@ -58,7 +59,8 @@ vue_mpa
     1. js压缩优化
     2. css压缩优化
 4. 配置**eslint**   参考: [ESLint中文官网](http://eslint.cn/docs/user-guide/configuring)
-
+5. 配置**babel**    参考: [Babel中文官网](https://www.babeljs.cn/docs/config-files)
+    * 备注(babel-loader 使用 @babel/core 的api @babel/core 使用@babel/preset-env 的方法集或者自定义的方法集)
 
 # todo
 * webpack 配置优化
