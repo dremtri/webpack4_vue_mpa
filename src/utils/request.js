@@ -19,7 +19,7 @@ service.interceptors.response.use(res => {
     return Promise.resolve(data)
   }
   // do something with business response error
-  return Promise.reject(new Error(res.message || 'Error'))
+  return Promise.reject(new Error(msg || 'Error'))
 }, error => {
   // do something with response error
   return Promise.reject(error)
