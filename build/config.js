@@ -2,7 +2,7 @@ module.exports = {
   entryDir: 'src/pages',
   outputDir: 'dist',
   publicPath: '',
-  templatePath: 'index.html', // 模板文件位置, 之所以用ejs, 是为了更方便的使用模板语法
+  templatePath: 'index.html', // 模板文件位置
   cssPath: 'css', // outputDir 目录下
   jsPath: 'js', // outputDir 目录下
   dev: { 
