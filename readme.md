@@ -61,9 +61,10 @@ vue_mpa
     3. 打包分块
 4. 配置**eslint**   参考: [ESLint中文官网](http://eslint.cn/docs/user-guide/configuring)
 5. 配置**babel**    参考: [Babel中文官网](https://www.babeljs.cn/docs/config-files)
-    * 备注(babel-loader 使用 @babel/core 的api @babel/core 使用@babel/preset-env 的方法集或者自定义的方法集)
+    1. 备注(babel-loader 使用 @babel/core 的api @babel/core 使用@babel/preset-env 的方法集或者自定义的方法集)
 6. 模板文件设置公共配置**head**、**script**、**使用类ejs语法插入变量**
-
+7. 封装axios 参考: [axios中文网](http://axios-js.com/zh-cn/docs/)
+    1. ...
 # todo
 * webpack 配置优化
 * webpack 配置合并
