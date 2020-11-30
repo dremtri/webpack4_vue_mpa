@@ -39,8 +39,32 @@ export default class MAxios {
     })
   }
   initResponseInterceptor() {
+    function isStream(responseType) {
+      return responseType === 'blob'
+    }
+    function getFileName({ headers }) {
+      const contentDisposition = headers['content-disposition'] || ''
+      // todo 使用正则获取filename
+      if(contentDisposition.indexOf('fileName=') > -1) {
+        return contentDisposition.split('filename=')[1]
+      }
+      return ''
+    }
+    function handleStream(res) {
+      const fileName = getFileName(res)
+      return Promise.resolve({
+        data: res.data,
+        fileName: decodeURIComponent(fileName)
+      })
+    }
     this.axios.interceptors.response.use(res => {
-      const { code, msg, data } = res
+      // todo 使用策略模式优化
+      const { responseType } = res.config
+      // 处理文件流下载
+      if(isStream(responseType)) {
+        return handleStream(res)
+      }
+      const { code, msg, data } = res.data
       if(code === 200) {
         return Promise.resolve(data)
       }
@@ -132,7 +156,7 @@ export default class MAxios {
    *  method: 'get', 请求方法
    * }
    */
-  _request (config = {}) {
-    return this.axios(config)
+  request(config = {}) {
+    return this.axios.request(config)
   }
 }
