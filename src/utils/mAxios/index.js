@@ -18,7 +18,7 @@ export default class MAxios {
       timeout: 20000,
       responseType: 'json',
       headers: {
-        'content-type': 'application/json',
+        'content-type': 'application/json;charset=utf-8',
       },
     }, config)
   }
