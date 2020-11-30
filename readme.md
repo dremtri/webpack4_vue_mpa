@@ -80,4 +80,5 @@ vue_mpa
 * 打包分析工具
 * mock server
 * 国际化
+* 将环境变量修改成从文件中获取;```npm install dotenv```
 * ...

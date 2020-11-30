@@ -1,10 +1,11 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const webpack = require('webpack')
 const config = require('./config')
 const { entry, output, alias, htmlPlugins, resolve, isProd } = require('./utils')
 const { rules } = require('./module')
-const { port } = require('../config/globalConfig');
+const { port, APP_BASE_API } = require('../config/globalConfig')
 
 const createLintingRule = () => ({
   test: /\.(js|vue)$/,
@@ -30,6 +31,9 @@ function getBaseConf() {
       ]
     },
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env.APP_BASE_API': JSON.stringify(APP_BASE_API)
+      }),
       new FriendlyErrorsWebpackPlugin({
         compilationSuccessInfo: {
           messages: [`You application is running here http://localhost:${port}`]

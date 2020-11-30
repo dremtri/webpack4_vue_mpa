@@ -3,7 +3,6 @@ import axios from 'axios'
 
 export default class MAxios {
   constructor(option = {}, config = {}) {
-    console.log(process.env.APP_BASE_API, 'xxxxxxxxxx')
     this.initOption(option)
     this.initConfig(config)
     this.createAxios()  // 创建axios实例
@@ -33,6 +32,7 @@ export default class MAxios {
   initRequestInterceptor() {
     this.axios.interceptors.request.use(config => {
       // do something before request is sent
+      console.log(config)
       return config
     }, error => {
       // do something with request error
