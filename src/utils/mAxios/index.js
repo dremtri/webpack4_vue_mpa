@@ -3,6 +3,7 @@ import axios from 'axios'
 
 export default class MAxios {
   constructor(option = {}, config = {}) {
+    console.log(process.env.APP_BASE_API, 'xxxxxxxxxx')
     this.initOption(option)
     this.initConfig(config)
     this.createAxios()  // 创建axios实例

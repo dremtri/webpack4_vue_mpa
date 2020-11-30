@@ -14,11 +14,11 @@ module.exports = merge(baseConf, {
     port: port,
     proxy: {
       [process.env.APP_BASE_API]: {
-        target: `http://0.0.0.0:9999`,
+        target: `http://0.0.0.0:${port}/mock`,
         changeOrigin: true,
         logLevel: 'debug',
         pathRewrite: {
-          ['^' + process.env.APP_BASE_API]: '/mock'
+          ['^' + process.env.APP_BASE_API]: ''
         }
       }
     },

@@ -1,11 +1,10 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const webpack = require('webpack')
 const config = require('./config')
 const { entry, output, alias, htmlPlugins, resolve, isProd } = require('./utils')
 const { rules } = require('./module')
-const { APP_BASE_API, port } = require('../config/globalConfig')
+const { port } = require('../config/globalConfig');
 
 const createLintingRule = () => ({
   test: /\.(js|vue)$/,
@@ -35,9 +34,6 @@ function getBaseConf() {
         compilationSuccessInfo: {
           messages: [`You application is running here http://localhost:${port}`]
         }
-      }),
-      new webpack.ProvidePlugin({
-        APP_BASE_API: APP_BASE_API
       }),
       new VueLoaderPlugin(), // 当没有一个.vue文件会报错.
       // 将 CSS 提取到单独的文件中
