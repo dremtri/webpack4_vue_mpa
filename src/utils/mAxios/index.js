@@ -153,7 +153,21 @@ export default class MAxios {
    * config = {
    *  data: {}, // body 参数
    *  params: {}, url参数
-   *  method: 'get', 请求方法
+   *  method: '', 请求方法
+   * }
+   */
+  downLoadFileStream(config = {}) {
+    const _config = merge({}, {
+      responseType: 'blob'
+    }, config)
+    return this.request(_config)
+  }
+  /**
+   * 如果你存在post请求时的参数为url参数, 或者get请求时参数为body参数时请使用此方法
+   * config = {
+   *  data: {}, // body 参数
+   *  params: {}, url参数
+   *  method: '', 请求方法
    * }
    */
   request(config = {}) {
