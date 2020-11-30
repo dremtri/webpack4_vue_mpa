@@ -53,7 +53,6 @@ function getHtmlPlugins() {
   let arr = []
   entryHtml.forEach((filePath) => {
     let filename = getFileName(filePath)
-    console.log(pageConfig[filename])
     let conf = {
       template: resolve(config.templatePath), // 模板来源
       filename: filename + '.html', // 文件名称

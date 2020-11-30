@@ -3,7 +3,7 @@ const { merge } = require('webpack-merge');
 const baseConf = require('./webpack.base.conf')
 const config = require('./config')
 const { resolve } = require('./utils')
-const globalConfig = require('../config/globalConfig')
+const { port } = require('../config/globalConfig')
 const mockServer = require('../mock/mockServerMiddleware')
 module.exports = merge(baseConf, {
   mode: 'development',
@@ -11,14 +11,14 @@ module.exports = merge(baseConf, {
   devServer: {
     contentBase: resolve(config.outputDir),
     host: '0.0.0.0',
-    port: '9999',
+    port: port,
     proxy: {
-      [globalConfig.APP_BASE_API]: {
-        target: `http://0.0.0.0:9999/mock`,
+      [process.env.APP_BASE_API]: {
+        target: `http://0.0.0.0:9999`,
         changeOrigin: true,
         logLevel: 'debug',
         pathRewrite: {
-          ['^' + globalConfig.APP_BASE_API]: ''
+          ['^' + process.env.APP_BASE_API]: '/mock'
         }
       }
     },

@@ -3,5 +3,6 @@
  */
 const { isProd } = require('../build/utils')
 module.exports = {
-  APP_BASE_API: isProd ? 'prod-api' : '/dev-api'
+  port: '9999',
+  APP_BASE_API: isProd ? '/prod-api' : '/dev-api'
 }
