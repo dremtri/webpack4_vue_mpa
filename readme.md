@@ -65,6 +65,10 @@ vue_mpa
 6. 模板文件设置公共配置**head**、**script**、**使用类ejs语法插入变量**
 7. 封装axios 参考: [axios中文网](http://axios-js.com/zh-cn/docs/)
     1. ...
+8. 本地使用**mockjs**模拟后台响应数据   参考: [mockjs](http://mockjs.com/)
+    1. 使用webpack下的devServer下的after注入mock-server中间件   参考: [devServer.after](https://www.webpackjs.com/configuration/dev-server/#devserver-after)
+    2. 在mock-server中间件中拦截路由
+    3. 根据不同的请求返回mock数据
 # todo
 * webpack 配置优化
 * webpack 配置合并
