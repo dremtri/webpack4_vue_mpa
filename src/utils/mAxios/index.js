@@ -32,7 +32,6 @@ export default class MAxios {
   initRequestInterceptor() {
     this.axios.interceptors.request.use(config => {
       // do something before request is sent
-      console.log(config)
       return config
     }, error => {
       // do something with request error
