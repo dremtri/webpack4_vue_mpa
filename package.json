@@ -59,6 +59,10 @@
     "lodash": "^4.17.20",
     "normalize.css": "^8.0.1"
   },
+  "engines": {
+    "node": ">=12.13.1",
+    "npm": ">=6.10.3"
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
