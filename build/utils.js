@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const config = require('./config')
 const alias = require('./alias')
 const pageConfig = require('../config/pageConfig')
+const { cdn } = require('./cdn')
 const resolve = (p) => path.resolve(__dirname, "..", p)
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -47,6 +48,19 @@ function getOutput() {
   }
 }
 
+function getPageParameters(fileName) {
+  if(!fileName) {
+    return {}
+  }
+  if(isProd) {
+    return {
+      ...(pageConfig[filename] || {}),
+      cdn: cdn
+    }
+  }
+  return pageConfig[filename]
+}
+
 // 获取webpack HtmlWebpackPlugin数据
 function getHtmlPlugins() {
   const entryHtml = glob.sync(`${config.entryDir}/**/main.js`)
@@ -58,7 +72,7 @@ function getHtmlPlugins() {
       filename: filename + '.html', // 文件名称
       chunks: [filename], // 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
       inject: true,
-      templateParameters: pageConfig[filename],
+      templateParameters: getPageParameters(filename),
       meta: {
         viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
         author: 'Dremtri',

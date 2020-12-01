@@ -6,6 +6,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const baseConf = require('./webpack.base.conf')
 const config = require('./config')
 const { resolve } = require('./utils')
+const { isProd } = require('./utils.js')
+const { externals } = require('./cdn')
 
 module.exports = merge(baseConf, {
   mode: 'production',
@@ -58,6 +60,7 @@ module.exports = merge(baseConf, {
       })
     ]
   },
+  externals: isProd ? externals : {},
   performance: {
     maxAssetSize: 1000000, // 单个文件超过1M警告
     maxEntrypointSize: 10000000 // 单个入口文件超过10M警告
