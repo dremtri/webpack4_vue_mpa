@@ -51,7 +51,7 @@ function getRules() {
         options: {
           limit: 10000,
           name:  isProd ? '[name].[hash].[ext]' : '[name].[ext]',
-          outputPath: resolve(`${config.outputDir}assets/fonts/`)
+          outputPath: `assets/fonts/`
         }
       }]
     }

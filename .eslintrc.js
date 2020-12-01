@@ -19,6 +19,7 @@ module.exports = {
       },
       'svg': 'always',
       'math': 'always'
-    }]
+    }],
+    'vue/singleline-html-element-content-newline': 'off'
   }
 }

@@ -1,4 +1,5 @@
 import Vue from "vue";
+import '@utils/registerGlobalPlugin'
 import Main from './main.vue'
 
 new Vue({

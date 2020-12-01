@@ -12,12 +12,23 @@ module.exports = merge(baseConf, {
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   optimization:{
     splitChunks: {
+      chunks: 'all',
       cacheGroups: {
-        commons: {
+        libs: {
           test: /[\\/]node_modules[\\/]/,
-          name: "vendor",
-          chunks: "all",
+          name: "chunk-libs",
           priority: -10
+        },
+        elementUI: {
+          test: /[\\/]node_modules[\\/]_?element-ui(.*)/,
+          name: 'chunk-elementUI',
+          priority: -5,
+        },
+        commons: {
+          test: resolve('src/components'),
+          name: 'chunk-commons',
+          priority: -15,
+          reuseExistingChunk: true
         },
         default: {
           minChunks: 2,
