@@ -58,6 +58,10 @@ module.exports = merge(baseConf, {
       })
     ]
   },
+  performance: {
+    maxAssetSize: 1000000, // 单个文件超过1M警告
+    maxEntrypointSize: 10000000 // 单个入口文件超过10M警告
+  },
   plugins: [
     new CleanWebpackPlugin({
       verbose: true, //开启在控制台输出信息

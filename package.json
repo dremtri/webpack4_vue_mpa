@@ -8,6 +8,7 @@
     "mock:dev": "cross-env NODE_ENV=mock APP_BASE_API=/dev-api webpack serve --config build/webpack.dev.conf.js",
     "build:dev": "cross-env NODE_ENV=development webpack --config build/webpack.dev.conf.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js",
+    "analyzer": "cross-env NODE_ENV=production analyzer=true webpack --config build/webpack.prod.conf.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

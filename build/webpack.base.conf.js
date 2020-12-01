@@ -6,6 +6,7 @@ const config = require('./config')
 const { entry, output, alias, htmlPlugins, resolve, isProd } = require('./utils')
 const { rules } = require('./module')
 const { port, APP_BASE_API } = require('../config/globalConfig')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const createLintingRule = () => ({
   test: /\.(js|vue)$/,
@@ -31,6 +32,7 @@ function getBaseConf() {
       ]
     },
     plugins: [
+      ...(process.env.analyzer ? [new BundleAnalyzerPlugin()] : []),
       new webpack.DefinePlugin({
         'process.env.APP_BASE_API': JSON.stringify(APP_BASE_API)
       }),
