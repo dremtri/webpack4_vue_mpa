@@ -54,11 +54,14 @@ function getPageParameters(fileName) {
   }
   if(isProd) {
     return {
-      ...(pageConfig[filename] || {}),
+      ...(pageConfig[fileName] || {}),
       cdn: cdn
     }
   }
-  return pageConfig[filename]
+  return {
+    ...(pageConfig[fileName] || {}),
+    cdn: {css:[], js:[]}
+  }
 }
 
 // 获取webpack HtmlWebpackPlugin数据
