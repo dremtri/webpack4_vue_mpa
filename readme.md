@@ -69,9 +69,11 @@ vue_mpa
     1. 使用webpack下的devServer下的after注入mock-server中间件   参考: [devServer.after](https://www.webpackjs.com/configuration/dev-server/#devserver-after)
     2. 在mock-server中间件中拦截路由
     3. 根据不同的请求返回mock数据
+9. 引入elementUI()
 # todo
 * webpack 配置优化
-* webpack 配置合并
+* 多进程打包
+* 打包静态包缓存
 * 引入第三方库
 * 封装axios
 * 多页面状态管理
