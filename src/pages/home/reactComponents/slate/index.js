@@ -6,21 +6,7 @@ import { Editor, createEditor, Transforms } from 'slate'
 // Import the Slate components and React plugin.
 import { Slate, Editable, withReact } from 'slate-react'
 
-// import { CodeElement, DefaultElement } from './plugins/index'
-// import CodeElement from './plugins/CodeElement'
-// import DefaultElement from './plugins/DefaultElement'
-
-const CodeElement = props => {
-  return (
-    <pre {...props.attributes}>
-      <code>{props.children}</code>
-    </pre>
-  )
-}
-
-const DefaultElement = props => {
-  return <p {...props.attributes}>{props.children}</p>
-}
+import { CodeElement, DefaultElement } from './plugins/index'
 
 const App = () => {
   const editor = useMemo(() => withReact(createEditor()), [])

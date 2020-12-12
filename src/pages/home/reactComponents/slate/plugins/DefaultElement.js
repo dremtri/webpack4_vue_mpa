@@ -1,5 +1,7 @@
-const DefaultElement = props => {
-  return <p {...props.attributes}>{props.children}</p>
-}
+import React from 'react'
 
-export default DefaultElement
+export default class CodeElement extends React.Component {
+  render() {
+    return <p {...this.props.attributes}>{this.props.children}</p>
+  }
+}

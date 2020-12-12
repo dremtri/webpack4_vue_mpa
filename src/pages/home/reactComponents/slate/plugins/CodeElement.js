@@ -1,10 +1,12 @@
 // Define a React component renderer for our code blocks.
-const CodeElement = props => {
-  return (
-    <pre {...props.attributes}>
-      <code>{props.children}</code>
-    </pre>
-  )
-}
+import React from 'react'
 
-export default CodeElement
+export default class CodeElement extends React.Component {
+  render() {
+    return (
+      <pre {...this.props.attributes}>
+        <code>{this.props.children}</code>
+      </pre>
+    )
+  }
+}
