@@ -1,6 +1,6 @@
 <template>
   <div class="test">
-    aasdgasasdfauhjkhdgs
+    <welcome name="React"></welcome>
     <el-row>
       <el-button>默认按钮</el-button>
       <el-button type="primary">主要按钮</el-button>
@@ -13,8 +13,12 @@
 </template>
 <script>
 import { list } from '@api/home/home.js'
+import Welcome from '../reactComponents/Welcome'
 export default {
   name: 'Test',
+  components: {
+    Welcome
+  },
   data() {
     return {}
   },

@@ -1,5 +1,8 @@
 # 功能
 1. 使用 mockjs mock数据真实模拟前后端分离
+2. Vue组件使用React组件
+    1. 安装[vuera](https://github.com/akxcv/vuera)
+    2. 避免jsx语法解析报错可以在**babelrc.js**中的**presets**添加@babel/preset-react或者在**plugins**添加@babel/plugin-syntax-jsx
 
 # 版本
 * nodejs: "14.15.1"
