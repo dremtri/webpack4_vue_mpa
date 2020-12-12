@@ -9,15 +9,18 @@
       <el-button type="warning">警告按钮</el-button>
       <el-button type="danger">危险按钮</el-button>
     </el-row>
+    <slate-demo></slate-demo>
   </div>
 </template>
 <script>
 import { list } from '@api/home/home.js'
 import Welcome from '../reactComponents/Welcome'
+import SlateDemo from '../reactComponents/slate/index'
 export default {
   name: 'Test',
   components: {
-    Welcome
+    Welcome,
+    SlateDemo
   },
   data() {
     return {}
