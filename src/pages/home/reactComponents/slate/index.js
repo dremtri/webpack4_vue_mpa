@@ -1,12 +1,50 @@
 // Import React dependencies.
 import React, { useEffect, useCallback, useMemo, useState } from 'react'
 // Import the Slate editor factory.
-import { Editor, createEditor, Transforms } from 'slate'
+import { Editor, createEditor, Transforms, Text } from 'slate'
 
 // Import the Slate components and React plugin.
 import { Slate, Editable, withReact } from 'slate-react'
 
-import { CodeElement, DefaultElement } from './plugins/index'
+import { CodeElement, DefaultElement, Leaf } from './plugins/index'
+
+// Define our own custom set of helpers.
+const CustomEditor = {
+  isBoldMarkActive(editor) {
+    const [match] = Editor.nodes(editor, {
+      match: n => n.bold === true,
+      universal: true,
+    })
+
+    return !!match
+  },
+
+  isCodeBlockActive(editor) {
+    const [match] = Editor.nodes(editor, {
+      match: n => n.type === 'code',
+    })
+
+    return !!match
+  },
+
+  toggleBoldMark(editor) {
+    const isActive = CustomEditor.isBoldMarkActive(editor)
+    Transforms.setNodes(
+      editor,
+      { bold: isActive ? null : true },
+      { match: n => Text.isText(n), split: true }
+    )
+  },
+
+  toggleCodeBlock(editor) {
+    const isActive = CustomEditor.isCodeBlockActive(editor)
+    Transforms.setNodes(
+      editor,
+      { type: isActive ? null : 'code' },
+      { match: n => Editor.isBlock(editor, n) }
+    )
+  },
+}
 
 const App = () => {
   const editor = useMemo(() => withReact(createEditor()), [])
@@ -26,6 +64,10 @@ const App = () => {
         return <DefaultElement {...props} />
     }
   }, [])
+  // Define a leaf rendering function that is memoized with `useCallback`.
+  const renderLeaf = useCallback(props => {
+    return <Leaf {...props} />
+  }, [])
   // Render the Slate context.
   return (
     <Slate
@@ -33,26 +75,48 @@ const App = () => {
       value={value}
       onChange={newValue => setValue(newValue)}
     >
+      <div>
+        <button
+          onMouseDown={event => {
+            event.preventDefault()
+            CustomEditor.toggleBoldMark(editor)
+          }}
+        >
+          Bold
+        </button>
+        <button
+          onMouseDown={event => {
+            event.preventDefault()
+            CustomEditor.toggleCodeBlock(editor)
+          }}
+        >
+          Code Block
+        </button>
+      </div>
       <Editable 
         // Pass in the `renderElement` function.
         renderElement={renderElement}
+        // Pass in the `renderLeaf` function.
+        renderLeaf={renderLeaf}
         // Define a new handler which prints the key that was pressed.
         onKeyDown={event => {
-          if (event.key === '&') {
-            // Prevent the ampersand character from being inserted.
-            event.preventDefault()
-            // Execute the `insertText` method when the event occurs.
-            editor.insertText('and')
+          if (!event.ctrlKey) {
+            return
           }
-          if (event.key === '`' && event.ctrlKey) {
-            // Prevent the "`" from being inserted by default.
-            event.preventDefault()
-            // Otherwise, set the currently selected blocks type to "code".
-            Transforms.setNodes(
-              editor,
-              { type: 'code' },
-              { match: n => Editor.isBlock(editor, n) }
-            )
+
+          // Replace the `onKeyDown` logic with our new commands.
+          switch (event.key) {
+            case '`': {
+              event.preventDefault()
+              CustomEditor.toggleCodeBlock(editor)
+              break
+            }
+
+            case 'b': {
+              event.preventDefault()
+              CustomEditor.toggleBoldMark(editor)
+              break
+            }
           }
         }}
       />
