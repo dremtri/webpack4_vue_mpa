@@ -14,11 +14,11 @@ import { withHistory } from 'slate-history'
 import { initialValue } from './utils'
 
 export default class MEditor extends React.Component {
+  editor = withHistory(withReact(createEditor()))
   constructor(props) {
     super(props)
     this.state = {
       value: props.value || initialValue,
-      editor: withHistory(withReact(createEditor()))
     }
   }
   handleChange = (value) => {
@@ -33,9 +33,8 @@ export default class MEditor extends React.Component {
       readOnly,
       autoCorrect
     } = this.props
-    const { editor, value } = this.state
     return (
-      <Slate editor={editor} value={value} onChange={this.handleChange}>
+      <Slate editor={this.editor} value={this.state.value} onChange={this.handleChange}>
         <Editable
           placeholder={placeholder}
           autoFocus={autoFocus}
