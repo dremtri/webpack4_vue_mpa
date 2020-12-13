@@ -34,14 +34,19 @@ export default class MEditor extends React.Component {
       autoCorrect
     } = this.props
     return (
-      <Slate editor={this.editor} value={this.state.value} onChange={this.handleChange}>
-        <Editable
-          placeholder={placeholder}
-          autoFocus={autoFocus}
-          readOnly={readOnly}
-          autoCorrect={autoCorrect}
-        />
-      </Slate>
+      <div class="m-editor-wrapper">
+        <div class="m-editor-toolbar"></div>
+        <div class="m-editor-content">
+          <Slate editor={this.editor} value={this.state.value} onChange={this.handleChange}>
+            <Editable
+              placeholder={placeholder}
+              autoFocus={autoFocus}
+              readOnly={readOnly}
+              autoCorrect={autoCorrect}
+            />
+          </Slate>
+        </div>
+      </div>
     )
   }
 }
