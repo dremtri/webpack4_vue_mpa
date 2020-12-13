@@ -4,6 +4,7 @@ module.exports = {
     '@babel/preset-react'
   ],
   plugins: [
-    '@babel/plugin-transform-runtime' // https://www.babeljs.cn/docs/babel-plugin-transform-runtime
+    '@babel/plugin-transform-runtime', // https://www.babeljs.cn/docs/babel-plugin-transform-runtime
+    '@babel/plugin-proposal-class-properties'
   ]
 }

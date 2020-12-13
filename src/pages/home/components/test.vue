@@ -10,17 +10,20 @@
       <el-button type="danger">危险按钮</el-button>
     </el-row>
     <slate-demo></slate-demo>
+    <m-editor placeholder="简单editor"></m-editor>
   </div>
 </template>
 <script>
 import { list } from '@api/home/home.js'
 import Welcome from '../reactComponents/Welcome'
 import SlateDemo from '../reactComponents/slate/index'
+import MEditor from '@components/MEditor'
 export default {
   name: 'Test',
   components: {
     Welcome,
-    SlateDemo
+    SlateDemo,
+    MEditor
   },
   data() {
     return {}

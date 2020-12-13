@@ -95,9 +95,9 @@ const App = () => {
       </div>
       <Editable 
         // Pass in the `renderElement` function.
-        renderElement={renderElement}
+        // renderElement={renderElement}
         // Pass in the `renderLeaf` function.
-        renderLeaf={renderLeaf}
+        // renderLeaf={renderLeaf}
         // Define a new handler which prints the key that was pressed.
         onKeyDown={event => {
           if (!event.ctrlKey) {
